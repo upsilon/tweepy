@@ -78,6 +78,8 @@ class Status(Model):
     def favorite(self):
         return self._api.create_favorite(self.id)
 
+    def reply(self, status, **options):
+        return self._api.update_status(status = status, in_reply_to_status_id = self.id_str, **options)
 
 class User(Model):
 
